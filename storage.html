@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Storage sample</title>
+    </head>
+    <body>
+        <div>Local Score
+            <p id="local">0</p>
+        </div>
+        <div>Session Score
+            <p id="session">0</p>
+        </div>
+        <button onclick="store()">Update</button>
+        <script>
+            function store(){
+                if(localStorage.getItem("count")!=undefined)
+                    localStorage.setItem("count",parseInt(localStorage.getItem("count"))+1);
+                else
+                    localStorage.setItem("count",'0');
+                if(sessionStorage.getItem("count")!=undefined)
+                    sessionStorage.setItem("count",parseInt(sessionStorage.getItem("count"))+1);
+                else
+                    sessionStorage.setItem("count",'0');
+                document.querySelector("#local").innerHTML=localStorage.getItem("count");
+                document.querySelector("#session").innerHTML=sessionStorage.getItem("count");
+            }
+            document.querySelector("#local").innerHTML=localStorage.getItem("count");
+            document.querySelector("#session").innerHTML=sessionStorage.getItem("count");
+        </script>
+    </body>
+</html>
